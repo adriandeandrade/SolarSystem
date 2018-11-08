@@ -52,6 +52,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4346447801819298}
+  - component: {fileID: 114327642190588164}
+  - component: {fileID: 114490261877566330}
   m_Layer: 0
   m_Name: Uranus
   m_TagString: Untagged
@@ -80,7 +82,7 @@ Transform:
   m_GameObject: {fileID: 1876265359955826}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalScale: {x: 450, y: 450, z: 450}
   m_Children:
   - {fileID: 4044885034437656}
   m_Father: {fileID: 4346447801819298}
@@ -92,8 +94,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1958436029962440}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -514.6, y: 158.6, z: -2.3863297}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -7293.628, y: 0, z: -2471.531}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4142093171328472}
@@ -142,6 +144,32 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1304992502307152}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114327642190588164
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1958436029962440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faa3a1ea766dbdc40a4dbc34394f5a4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotateSpeed: 4
+--- !u!114 &114490261877566330
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1958436029962440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a832456563c5fa5499175b58c9735793, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetToRotateAround: {fileID: 0}
+  orbitSpeed: 2.5
+  gameManager: {fileID: 0}
 --- !u!135 &135362437955767094
 SphereCollider:
   m_ObjectHideFlags: 1

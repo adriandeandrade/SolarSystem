@@ -52,6 +52,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4570345994959404}
+  - component: {fileID: 114071118903887562}
+  - component: {fileID: 114006746099291310}
   m_Layer: 0
   m_Name: Mars
   m_TagString: Untagged
@@ -78,8 +80,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1808585971816406}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.0498009, y: 0.48073578, z: -2.3863297}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2198.302, y: 0, z: -1962.723}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4828727143185970}
@@ -94,7 +96,7 @@ Transform:
   m_GameObject: {fileID: 1044010734311714}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalScale: {x: 360, y: 360, z: 360}
   m_Children:
   - {fileID: 4096896176382756}
   m_Father: {fileID: 4570345994959404}
@@ -142,6 +144,32 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1632516105754086}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114006746099291310
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1808585971816406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a832456563c5fa5499175b58c9735793, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetToRotateAround: {fileID: 0}
+  orbitSpeed: 6
+  gameManager: {fileID: 0}
+--- !u!114 &114071118903887562
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1808585971816406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faa3a1ea766dbdc40a4dbc34394f5a4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotateSpeed: 4
 --- !u!135 &135982499159626468
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -132,7 +132,7 @@ MonoBehaviour:
     value: 1
   contrast:
     overrideState: 1
-    value: 0
+    value: -21
   mixerRedOutRedIn:
     overrideState: 1
     value: 100
@@ -1386,13 +1386,13 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 14.04
+    value: 3.69
   threshold:
     overrideState: 1
-    value: 1
+    value: 0.5
   softKnee:
     overrideState: 1
-    value: 0.5
+    value: 0.815
   clamp:
     overrideState: 1
     value: 65472
@@ -1407,7 +1407,7 @@ MonoBehaviour:
     value: {r: 1, g: 1, b: 1, a: 1}
   fastMode:
     overrideState: 1
-    value: 0
+    value: 1
   dirtTexture:
     overrideState: 0
     value: {fileID: 0}

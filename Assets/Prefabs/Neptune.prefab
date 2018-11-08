@@ -34,6 +34,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4999519038940386}
+  - component: {fileID: 114013892572641730}
+  - component: {fileID: 114759041922438994}
   m_Layer: 0
   m_Name: Neptune
   m_TagString: Untagged
@@ -80,7 +82,7 @@ Transform:
   m_GameObject: {fileID: 1022567418728226}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalScale: {x: 450, y: 450, z: 450}
   m_Children:
   - {fileID: 4405346136524034}
   m_Father: {fileID: 4999519038940386}
@@ -92,8 +94,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1035138474247072}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -412.7, y: 0.48073578, z: -2.3863297}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2676.503, y: 0, z: 9001.507}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4867186779402884}
@@ -142,6 +144,32 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1571479665928142}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114013892572641730
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1035138474247072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faa3a1ea766dbdc40a4dbc34394f5a4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotateSpeed: 4
+--- !u!114 &114759041922438994
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1035138474247072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a832456563c5fa5499175b58c9735793, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetToRotateAround: {fileID: 0}
+  orbitSpeed: 2
+  gameManager: {fileID: 0}
 --- !u!135 &135377754517865394
 SphereCollider:
   m_ObjectHideFlags: 1
