@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.04451938, g: 0.04204543, b: 0.04634949, a: 1}
+  m_IndirectSpecularColor: {r: 0.04345821, g: 0.041858047, b: 0.044895597, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -629,9 +629,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: add4837458f0c9545ab89e68991e38a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraMode: 0
+  cameraMode: 1
   target: {fileID: 0}
-  offset: {x: -2104, y: 0, z: 58}
+  offset: {x: 2, y: 0, z: 0}
   flySpeed: 1000
   rotateSpeed: 20
 --- !u!1001 &631621073
@@ -1146,6 +1146,30 @@ Prefab:
     - target: {fileID: 4221538131096092, guid: 4e658d39ff8590140bdcb2040ed85ec8, type: 2}
       propertyPath: m_RootOrder
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 198598965604799970, guid: 4e658d39ff8590140bdcb2040ed85ec8,
+        type: 2}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 198598965604799970, guid: 4e658d39ff8590140bdcb2040ed85ec8,
+        type: 2}
+      propertyPath: InitialModule.maxNumParticles
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 199255362669927454, guid: 4e658d39ff8590140bdcb2040ed85ec8,
+        type: 2}
+      propertyPath: m_EnableGPUInstancing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198598965604799970, guid: 4e658d39ff8590140bdcb2040ed85ec8,
+        type: 2}
+      propertyPath: RotationModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692438681903544, guid: 4e658d39ff8590140bdcb2040ed85ec8, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e658d39ff8590140bdcb2040ed85ec8, type: 2}

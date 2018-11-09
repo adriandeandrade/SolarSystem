@@ -28,11 +28,6 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
-        //transform.Rotate(new Vector3(Input.GetAxis("Mouse Y") * rotateSpeed, -Input.GetAxis("Mouse X") * rotateSpeed, 0));
-        //xRot = transform.rotation.eulerAngles.x;
-        //yRot = transform.rotation.eulerAngles.y;
-        //transform.rotation = Quaternion.Euler(xRot, yRot, 0);
-
         if (cameraMode == CameraMode.Free)
         {
             FreeCamera();
@@ -48,7 +43,8 @@ public class CameraController : MonoBehaviour
             RaycastHit hit = new RaycastHit();
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit))
             {
-                target = hit.collider.gameObject.transform;
+                //target = hit.collider.gameObject.transform;
+                SetTarget(hit);
             }
         }
     }
@@ -81,8 +77,24 @@ public class CameraController : MonoBehaviour
         TurnOffTRS();
         if (target != null)
         {
-            transform.position = target.position + offset;
+            //transform.parent =
+
+            if (Input.GetMouseButton(1))
+            {
+                transform.LookAt(target);
+                transform.RotateAround(target.position, Vector3.up, Input.GetAxis("Mouse X") * rotateSpeed * Time.deltaTime);
+                transform.RotateAround(target.position, Vector3.forward, Input.GetAxis("Mouse Y") * rotateSpeed * Time.deltaTime);
+            }
         }
+    }
+
+    private void SetTarget(RaycastHit hitInfo)
+    {
+        target = hitInfo.collider.gameObject.transform;
+        transform.parent = target;
+
+        transform.LookAt(target);
+        transform.localPosition = Vector3.zero + offset;
     }
 
     private void TurnOffTRS()
