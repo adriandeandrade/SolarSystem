@@ -4,51 +4,58 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    private enum CameraMode { Free, Target };
-    [SerializeField] private CameraMode cameraMode;
-
+    [Header("Target Camera Variables")]
+    [SerializeField] private LayerMask planetLayer;
     [SerializeField] private Transform target;
-    [SerializeField] private Vector3 offset;
+    [SerializeField] private float zoomSensitivity;
+    [SerializeField] private float minFov = 15;
+    [SerializeField] private float maxFov = 90f;
 
     [Header("Free Fly Camera Variables")]
     [SerializeField] private float flySpeed;
     [SerializeField] private float rotateSpeed;
 
-    private float xRot;
-    private float yRot;
-
     private bool trailRenderersOn = true;
 
     private TrailRenderer[] lrs = new TrailRenderer[8];
+    private GameManager gameManager;
 
     private void Start()
     {
         lrs = FindObjectsOfType<TrailRenderer>();
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     private void Update()
     {
-        if (cameraMode == CameraMode.Free)
+        if (gameManager.cameraMode == GameManager.CameraMode.Free)
         {
             FreeCamera();
         }
 
-        if (cameraMode == CameraMode.Target)
+        if (gameManager.cameraMode == GameManager.CameraMode.Target)
         {
             TargetCamera();
-        }
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            RaycastHit hit = new RaycastHit();
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit))
+            if (Input.GetMouseButtonDown(0))
             {
-                //target = hit.collider.gameObject.transform;
-                SetTarget(hit);
+                RaycastHit hit = new RaycastHit();
+                if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, planetLayer))
+                {
+                    target = hit.collider.gameObject.transform;
+                    transform.parent = target;
+                    Vector3 offset = target.GetComponent<Planet>().camDistance;
+                    SetPosition(offset);
+                }
             }
         }
     }
 
+    private void SetPosition(Vector3 camOffset)
+    {
+        transform.localPosition = camOffset;
+    }
+    
     private void FreeCamera()
     {
         TurnOnTRS();
@@ -77,24 +84,19 @@ public class CameraController : MonoBehaviour
         TurnOffTRS();
         if (target != null)
         {
-            //transform.parent =
-
             if (Input.GetMouseButton(1))
             {
-                transform.LookAt(target);
                 transform.RotateAround(target.position, Vector3.up, Input.GetAxis("Mouse X") * rotateSpeed * Time.deltaTime);
                 transform.RotateAround(target.position, Vector3.forward, Input.GetAxis("Mouse Y") * rotateSpeed * Time.deltaTime);
             }
+
+            float fov = Camera.main.fieldOfView;
+            fov += Input.GetAxis("Mouse ScrollWheel") * zoomSensitivity * Time.deltaTime;
+            fov = Mathf.Clamp(fov, minFov, maxFov);
+            Camera.main.fieldOfView = fov;
+
+            transform.LookAt(target);
         }
-    }
-
-    private void SetTarget(RaycastHit hitInfo)
-    {
-        target = hitInfo.collider.gameObject.transform;
-        transform.parent = target;
-
-        transform.LookAt(target);
-        transform.localPosition = Vector3.zero + offset;
     }
 
     private void TurnOffTRS()

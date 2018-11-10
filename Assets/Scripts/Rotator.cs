@@ -6,8 +6,15 @@ public class Rotator : MonoBehaviour
 {
     [SerializeField] private float rotateSpeed;
 
+    private GameManager gameManager;
+
+    private void Start()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+    }
+
     private void Update()
     {
-        transform.Rotate(Vector3.up * rotateSpeed * Time.deltaTime);
+        transform.Rotate(Vector3.up * rotateSpeed * Time.deltaTime * gameManager.orbitScaleSpeed);
     }
 }

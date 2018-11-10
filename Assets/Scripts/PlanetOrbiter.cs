@@ -9,9 +9,14 @@ public class PlanetOrbiter : MonoBehaviour
 
     [SerializeField] private GameManager gameManager;
 
+    ParticleSystem par;
+
+    private float rand;
+
     private void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
+        rand = Random.Range(0f, 360f);
     }
 
     private void Update()

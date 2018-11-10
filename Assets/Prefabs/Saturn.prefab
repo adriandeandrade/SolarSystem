@@ -22,7 +22,9 @@ GameObject:
   - component: {fileID: 114515231302448724}
   - component: {fileID: 114478728723518272}
   - component: {fileID: 96426881372503688}
-  m_Layer: 0
+  - component: {fileID: 135947792618152404}
+  - component: {fileID: 114396501071414920}
+  m_Layer: 9
   m_Name: Saturn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +41,6 @@ GameObject:
   - component: {fileID: 4476503803465566}
   - component: {fileID: 33636811476538128}
   - component: {fileID: 23352949333257000}
-  - component: {fileID: 135462990605453494}
   m_Layer: 0
   m_Name: saturn
   m_TagString: Untagged
@@ -87,7 +88,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1842117707925006}
   m_LocalRotation: {x: -0.59603906, y: -0.09931618, z: 0.07462152, w: 0.79328775}
-  m_LocalPosition: {x: 0.00009277344, y: 0.00040348084, z: 0.00005371094}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 4544393470510598}
@@ -100,7 +101,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1158721162146578}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2299.903, y: 0, z: -6029.231}
+  m_LocalPosition: {x: -55.26886, y: 0, z: -29.75608}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4544393470510598}
@@ -114,7 +115,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1443011859454214}
   m_LocalRotation: {x: 0.13947582, y: -0.01746176, z: 0.12299253, w: 0.9824024}
-  m_LocalPosition: {x: 0.00009277344, y: 0.00040348084, z: 0.00005371094}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4544393470510598}
@@ -128,7 +129,7 @@ Transform:
   m_GameObject: {fileID: 1685832744764174}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 500, y: 500, z: 500}
+  m_LocalScale: {x: 5.1413, y: 5.1413, z: 5.1413}
   m_Children:
   - {fileID: 4476503803465566}
   - {fileID: 4109930949108070}
@@ -276,7 +277,7 @@ TrailRenderer:
   m_Time: Infinity
   m_Parameters:
     serializedVersion: 2
-    widthMultiplier: 5
+    widthMultiplier: 0.02
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -329,6 +330,18 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &114396501071414920
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1158721162146578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f09e8e49ca0ff8648a236fbe5569761a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camDistance: {x: 0, y: 0, z: -15}
 --- !u!114 &114478728723518272
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -355,15 +368,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 4
---- !u!135 &135462990605453494
+--- !u!135 &135947792618152404
 SphereCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1443011859454214}
+  m_GameObject: {fileID: 1158721162146578}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 2.57
   m_Center: {x: 0, y: 0, z: 0}

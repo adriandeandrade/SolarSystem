@@ -5,4 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public float orbitScaleSpeed;
+
+    public enum CameraMode { Free, Target };
+    [SerializeField] public CameraMode cameraMode;
 }
