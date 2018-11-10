@@ -20,6 +20,8 @@ public class CameraController : MonoBehaviour
     private TrailRenderer[] lrs = new TrailRenderer[8];
     private GameManager gameManager;
 
+    private bool cursorLocked = false;
+
     private void Start()
     {
         lrs = FindObjectsOfType<TrailRenderer>();
@@ -28,6 +30,19 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape) && !cursorLocked)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            cursorLocked = true;
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape) && cursorLocked)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            cursorLocked = false;
+        }
+
         if (gameManager.cameraMode == GameManager.CameraMode.Free)
         {
             FreeCamera();
@@ -55,28 +70,14 @@ public class CameraController : MonoBehaviour
     {
         transform.localPosition = camOffset;
     }
-    
+
     private void FreeCamera()
     {
         TurnOnTRS();
 
-        if (Input.GetKey(KeyCode.W))
-            transform.Translate(Vector3.forward * flySpeed * Time.deltaTime);
-
-        if (Input.GetKey(KeyCode.S))
-            transform.Translate(Vector3.back * flySpeed * Time.deltaTime);
-
-        if (Input.GetKey(KeyCode.A))
-            transform.Translate(Vector3.left * flySpeed * Time.deltaTime);
-
-        if (Input.GetKey(KeyCode.D))
-            transform.Translate(Vector3.right * flySpeed * Time.deltaTime);
-
-        if (Input.GetKey(KeyCode.Q))
-            transform.Translate(Vector3.up * flySpeed * Time.deltaTime);
-
-        if (Input.GetKey(KeyCode.Z))
-            transform.Translate(Vector3.down * flySpeed * Time.deltaTime);
+        //flySpeed = Mathf.Max(flySpeed += Input.GetAxis("Mouse ScrollWheel"), 0.0f);
+        transform.position += (transform.right * Input.GetAxis("Horizontal") + transform.forward * Input.GetAxis("Vertical") + transform.up * Input.GetAxis("Depth")) * flySpeed;
+        transform.eulerAngles += new Vector3(-Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), Input.GetAxis("Rotation"));
     }
 
     private void TargetCamera()

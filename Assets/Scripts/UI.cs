@@ -4,10 +4,20 @@ using UnityEngine;
 
 public class UI : MonoBehaviour
 {
-    [SerializeField] private GameObject menu;
+    private GameManager gameManager;
 
-    public void Play()
+    private void Start()
     {
-        menu.SetActive(false);
+        gameManager = FindObjectOfType<GameManager>();
+    }
+
+    public void SetTargetCam()
+    {
+        gameManager.SetCameraMode(GameManager.CameraMode.Target);
+    }
+
+    public void SetFreeCam()
+    {
+        gameManager.SetCameraMode(GameManager.CameraMode.Free);
     }
 }

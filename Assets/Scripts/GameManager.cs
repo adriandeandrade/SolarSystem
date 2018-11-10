@@ -8,4 +8,9 @@ public class GameManager : MonoBehaviour
 
     public enum CameraMode { Free, Target };
     [SerializeField] public CameraMode cameraMode;
+
+    public void SetCameraMode(CameraMode mode)
+    {
+        cameraMode = mode;
+    }
 }
